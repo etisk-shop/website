@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Etisk shopping - stem med din pengepung</title>
+</head>
+
+<body onload="init()">
+    <div id="container">
+        <h1>Etisk shopping</h1>
+        <p>
+            Du vil gerne handle, men du vil ikke smadre mennesker og klode. Hvordan gør man så lige det?
+            <br />
+            Vi ved det ikke, men her har du en samling af bedre alternativer, som måske kan hjælpe med at skubbe tingene i
+            den rigtige retning.
+        </p>
+        <hr />
+
+        <div id="brandlist"></div>
+    </div>
+
+    <script type="text/javascript">
+        const body = document.querySelector("body");
+        const brandlistContainer = document.getElementById("brandlist");
+        const brandData = {};
+        var converter;
+
+        function init() {
+            converter = new showdown.Converter();
+            
+            // Add a hook to make all links open a new window
+            DOMPurify.addHook('afterSanitizeAttributes', function (node) {
+            // set all elements owning target to target=_blank
+            if ('target' in node) {
+                node.setAttribute('target', '_blank');
+            }
+            if ('rel' in node) {
+                node.setAttribute('rel', 'nofollow');
+            }
+            });
+
+            loadBrands();
+        }
+
+        async function loadBrands() {
+            const response = await fetch('./brands.json');
+            const brands = await response.json();
+            brands.forEach(brand => {
+                brandlistContainer.appendChild(createBrandLink(brand));
+            });
+        };
+
+        function createBrandLink(brand) {
+            const container = document.createElement("div");
+            container.className = "brand";
+            container.innerHTML = brand.name;
+            container.onclick = () => showBrandModal(brand);
+            return container;
+        }
+
+        async function fetchBrandDetails(brand) {
+            const response = await fetch('./brands/' + brand.moniker + '.md');
+            const text = await response.text();
+            return text;
+        }
+
+        async function fetchBrandAlternatives(brand) {
+            const response = await fetch('./brands/' + brand.moniker + '.alternatives.json');
+            const alternatives = await response.json();
+            return alternatives;
+        }
+
+        async function showBrandModal(brand) {
+            if (!brandData[brand.moniker]) {
+                let md = fetchBrandDetails(brand);
+                let alt = fetchBrandAlternatives(brand);
+                await Promise.all([md, alt]);
+                md = await md;
+                alt = await alt;
+
+                brandData[brand.moniker] = {
+                    details: DOMPurify.sanitize(converter.makeHtml(md)),
+                    alternatives: renderAlternatives(alt)
+                };
+            }
+
+            const modalContainer = document.createElement("div");
+            modalContainer.className = "modal";
+            modalContainer.addEventListener('click', e => body.removeChild(modalContainer));
+
+            const modalContent = document.createElement("div");
+            modalContent.className = "modal-content";
+            modalContent.addEventListener('click', e => e.stopPropagation());
+
+            const modalDetails = document.createElement("div");
+            modalDetails.innerHTML = brandData[brand.moniker].details;
+            modalContent.appendChild(modalDetails);
+
+            const modalAlternatives = document.createElement("div");
+            modalAlternatives.innerHTML = brandData[brand.moniker].alternatives;
+            modalContent.appendChild(modalAlternatives);
+
+            modalContainer.appendChild(modalContent);
+            body.appendChild(modalContainer);
+        }
+
+        function renderAlternatives(alternatives) {
+            return `<h2>Alternativer</h2>
+                ${alternatives.map(alt =>
+                    `<div>
+                        <h3><a href="${alt.link}" title="${alt.name}" rel="nofollow" target="_blank">${alt.name}</a></h3>
+                        <p>${alt.description}</p>
+                    </div>`
+                ).join('')}
+            `;
+        }
+    </script>
+    <style type="text/css">
+        #container {
+            width: 50%;
+            margin: auto;
+        }
+        .brand {
+            cursor: pointer;
+            padding: 1em;
+            border: 1px dashed black;
+            display: inline-block;
+        }
+
+        .modal {
+            z-index: 9999;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, .8);
+        }
+
+        .modal-content {
+            vertical-align: middle;
+            background-color: white;
+            width: 50%;
+            padding: 2em;
+            margin: 5em auto;
+        }
+    </style>
+    <script src="./js/showdown.min.js"></script>
+    <script src="./js/purify.min.js"></script>
+</body>
+
+</html>
