@@ -59,14 +59,12 @@
 
         async function fetchBrandDetails(brand) {
             const response = await fetch('./brands/' + brand.moniker + '.md');
-            const text = await response.text();
-            return text;
+            return await response.text();
         }
 
         async function fetchBrandAlternatives(brand) {
-            const response = await fetch('./brands/' + brand.moniker + '.alternatives.json');
-            const alternatives = await response.json();
-            return alternatives;
+            const response = await fetch('./brands/' + brand.moniker + '.alternatives.md');
+            return await response.text();
         }
 
         async function showBrandModal(brand) {
@@ -79,7 +77,7 @@
 
                 brandData[brand.moniker] = {
                     details: DOMPurify.sanitize(converter.makeHtml(md)),
-                    alternatives: renderAlternatives(alt)
+                    alternatives: DOMPurify.sanitize(converter.makeHtml(alt))
                 };
             }
 
@@ -101,17 +99,6 @@
 
             modalContainer.appendChild(modalContent);
             body.appendChild(modalContainer);
-        }
-
-        function renderAlternatives(alternatives) {
-            return `<h2>Alternativer</h2>
-                ${alternatives.map(alt =>
-                    `<div>
-                        <h3><a href="${alt.link}" title="${alt.name}" rel="nofollow" target="_blank">${alt.name}</a></h3>
-                        <p>${alt.description}</p>
-                    </div>`
-                ).join('')}
-            `;
         }
     </script>
     <style type="text/css">
