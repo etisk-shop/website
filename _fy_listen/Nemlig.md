@@ -30,3 +30,17 @@ I et forsøg på at redde situationen udtaler Nemlig's direktør, Stefan Plenge,
 Kilder:
 
 1. <a id="footnote-1"></a>[CVR registret](https://datacvr.virk.dk/data/visenhed?enhedstype=virksomhed&id=33070861&soeg=33070861&language=da)
+
+---
+
+## Alternativer
+
+<ul>
+{% for alternativ in site.data.alternativer.nemlig %}
+  <li>
+    <a href="/{{ alternativ.url }}">
+      {{ alternativ.name }}
+    </a>
+  </li>
+{% endfor %}
+</ul>

@@ -57,3 +57,17 @@ exclude:
 #   - vendor/gems/
 #   - vendor/ruby/
 
+collections:
+  fy_listen:
+    permalink: "/:collection/:name"
+    output: true
+  ja_listen:
+    permalink: "/:collection/:name"
+    output: true
+
+just_the_docs:
+  collections:
+    fy_listen:
+      name: Fy Listen
+    ja_listen:
+      name: Ja Listen
