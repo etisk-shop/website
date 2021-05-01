@@ -20,7 +20,7 @@ var svg = d3.select("#hierarchy")
   .append("g")
     .attr("transform", "translate(40,0)");  
 
-var data = JSON.parse('{"children":[{"name":"Bestseller","children":[{"name":"Vero Moda","colname":"level3"},{"name":"Jack & Jones","colname":"level3"},{"name":"Vila","colname":"level3"},{"name":"Junarose","colname":"level3"},{"name":"Only","colname":"level3"},{"name":"Only & Sons","colname":"level3"},{"name":"Kids Only","colname":"level3"},{"name":"Only Play","colname":"level3"},{"name":"Only Carmakoma","colname":"level3"},{"name":"Jaqueline de Young","colname":"level3"},{"name":"Selected Femme/Homme","colname":"level3"},{"name":"Name it","colname":"level3"},{"name":"LMTD","colname":"level3"},{"name":"Noisy May","colname":"level3"},{"name":".Object","colname":"level3"},{"name":"Pieces","colname":"level3"},{"name":"Yas","colname":"level3"},{"name":"mamalicious","colname":"level3"}],"colname":"level2"},{"name":"Normal","children":[],"colname":"level2"},{"name":"Nemlig","children":[],"colname":"level2"},{"name":"ASOS","children":[],"colname":"level2"},{"name":"Zalando","children":[],"colname":"level2"}],"name":"AHP"}');
+var data = JSON.parse('{"children":[{"name":"Bestseller","children":[{"name":"Vero Moda","colname":"level3"},{"name":"Jack & Jones","colname":"level3"},{"name":"Vila","colname":"level3"},{"name":"Junarose","colname":"level3"},{"name":"Only","colname":"level3"},{"name":"Only & Sons","colname":"level3"},{"name":"Kids Only","colname":"level3"},{"name":"Only Play","colname":"level3"},{"name":"Only Carmakoma","colname":"level3"},{"name":"Jaqueline de Young","colname":"level3"},{"name":"Selected Femme/Homme","colname":"level3"},{"name":"Name it","colname":"level3"},{"name":"LMTD","colname":"level3"},{"name":"Noisy May","colname":"level3"},{"name":".Object","colname":"level3"},{"name":"Pieces","colname":"level3"},{"name":"Yas","colname":"level3"},{"name":"mamalicious","colname":"level3"}],"colname":"level2"},{"name":"Bestseller Fashion Group China","children":[],"colname":"level2"},{"name":"Normal","children":[],"colname":"level2"},{"name":"Nemlig","children":[],"colname":"level2"},{"name":"ASOS","children":[],"colname":"level2"},{"name":"Zalando","children":[],"colname":"level2"},{"name":"Klarna","children":[],"colname":"level2"},{"name":"J. Lindeberg","children":[],"colname":"level2"},{"name":"Bianco Footwear","children":[],"colname":"level2"}],"name":"AHP"}');
 
   console.log(data);
 
@@ -78,11 +78,24 @@ Hierarkisk overblik over, hvad AHP enten er ejer eller medejer af.
 
 <div id="hierarchy"></div>
 
-Alle brands under Bestseller kan også ses på [deres egen hjemmeside](https://about.bestseller.com/our-brands).
+### Brand informationer
+* Bestseller
+  * Alle brands under Bestseller kan også ses på [deres egen hjemmeside](https://about.bestseller.com/our-brands). 
+  * Brands relateret til Bestseller kan ses [her](https://about.bestseller.com/about-us/related-companies/related-companies-overview).
+  * [Bestseller Fashion Group China](https://about.bestseller.com/about-us/related-companies/fashion-group-china)
+* Information om ejerskab i [Normal](https://dagligvarehandlen.dk/bestseller-ejer-koeber-op-i-normal-14/12-2016?fbclid=IwAR3JLujf9K0p-oyl15kn2_RpVYDIGOwSg9oY4OzruXRCXNEfx-8G5NCv5J4)
+* Zalando
+  * [Pressemeddelelse](https://corporate.zalando.com/en/newsroom/en/press-releases/zalando-introduces-anders-holch-povlsen-new-shareholder)
+  * [Zalando, aktieoversigt](https://ww.fashionnetwork.com/news/Bestseller-ceo-buys-more-shares-in-zalando,1078304.html)
+* Nemlig
+  * [Efter arbejdsforholdsskandalen](https://piopio.dk/mange-milliardaer-staar-bag-nemligcom)
+* Klarna
+  * [Pressemeddelelse](https://www.klarna.com/international/press/global-klarna-announces-strategic-equity-investment-by-brightfolk-as/)
+* [J. Lindeberg](https://en.wikipedia.org/wiki/J.Lindeberg)
+* Generelt
+  * [Forbes](https://www.forbes.com/profile/anders-holch-povlsen/)
 
 Hierarkiet er stadig under udvikling.
-
-
 ---
 
 Kilder:
