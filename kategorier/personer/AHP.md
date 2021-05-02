@@ -20,9 +20,7 @@ var svg = d3.select("#hierarchy")
   .append("g")
     .attr("transform", "translate(40,0)");  
 
-var data = JSON.parse('{"children":[{"name":"Bestseller","children":[{"name":"Vero Moda","colname":"level3"},{"name":"Jack & Jones","colname":"level3"},{"name":"Vila","colname":"level3"},{"name":"Junarose","colname":"level3"},{"name":"Only","colname":"level3"},{"name":"Only & Sons","colname":"level3"},{"name":"Kids Only","colname":"level3"},{"name":"Only Play","colname":"level3"},{"name":"Only Carmakoma","colname":"level3"},{"name":"Jaqueline de Young","colname":"level3"},{"name":"Selected Femme/Homme","colname":"level3"},{"name":"Name it","colname":"level3"},{"name":"LMTD","colname":"level3"},{"name":"Noisy May","colname":"level3"},{"name":".Object","colname":"level3"},{"name":"Pieces","colname":"level3"},{"name":"Yas","colname":"level3"},{"name":"mamalicious","colname":"level3"}],"colname":"level2"},{"name":"Bestseller Fashion Group China","children":[],"colname":"level2"},{"name":"Normal","children":[],"colname":"level2"},{"name":"Nemlig","children":[],"colname":"level2"},{"name":"ASOS","children":[],"colname":"level2"},{"name":"Zalando","children":[],"colname":"level2"},{"name":"Klarna","children":[],"colname":"level2"},{"name":"J. Lindeberg","children":[],"colname":"level2"},{"name":"Bianco Footwear","children":[],"colname":"level2"}],"name":"AHP"}');
-
-  console.log(data);
+var data = JSON.parse('{"children":[{"name":"Bestseller","children":[{"name":"Vero Moda","colname":"level3"},{"name":"Jack & Jones","colname":"level3"},{"name":"Vila","colname":"level3"},{"name":"Junarose","colname":"level3"},{"name":"Only","colname":"level3"},{"name":"Only & Sons","colname":"level3"},{"name":"Kids Only","colname":"level3"},{"name":"Only Play","colname":"level3"},{"name":"Only Carmakoma","colname":"level3"},{"name":"Jaqueline de Young","colname":"level3"},{"name":"Selected Femme/Homme","colname":"level3"},{"name":"Name it","colname":"level3"},{"name":"LMTD","colname":"level3"},{"name":"Noisy May","colname":"level3"},{"name":".Object","colname":"level3"},{"name":"Pieces","colname":"level3"},{"name":"Yas","colname":"level3"},{"name":"mamalicious","colname":"level3"}],"colname":"level2"},{"name":"Bestseller Fashion Group China","children":[],"colname":"level2"},{"name":"Normal","children":[],"colname":"level2"},{"name":"Nemlig","children":[],"colname":"level2"},{"name":"ASOS","children":[{"name":"Top Shop","colname":"level3"},{"name":"Topman","colname":"level3"},{"name":"Miss Selfridge","colname":"level3"}],"colname":"level2"},{"name":"Zalando","children":[{"name":"Anna Field","colname":"level3"},{"name":"Even&Odd","colname":"level3"},{"name":"Friboo","colname":"level3"},{"name":"FullStop","colname":"level3"},{"name":"Kiomi","colname":"level3"},{"name":"Mint&Berry","colname":"level3"},{"name":"Pier One","colname":"level3"},{"name":"Twin tip","colname":"level3"},{"name":"Yourturn","colname":"level3"},{"name":"Zalando Essentials","colname":"level3"},{"name":"Zign","colname":"level3"}],"colname":"level2"},{"name":"Klarna","children":[],"colname":"level2"},{"name":"J. Lindeberg","children":[],"colname":"level2"},{"name":"Bianco Footwear","children":[],"colname":"level2"}],"name":"AHP"}');
 
   var cluster = d3.cluster()
     .size([height, width - 100]);
@@ -65,7 +63,7 @@ var data = JSON.parse('{"children":[{"name":"Bestseller","children":[{"name":"Ve
 		.style("font-size", 12)
 		.text(function(d) { 
 			return d.data.name;
-		})
+		});
 });
 
 </script>
@@ -86,7 +84,11 @@ Hierarkisk overblik over, hvad AHP enten er ejer eller medejer af.
 * Information om ejerskab i [Normal](https://dagligvarehandlen.dk/bestseller-ejer-koeber-op-i-normal-14/12-2016?fbclid=IwAR3JLujf9K0p-oyl15kn2_RpVYDIGOwSg9oY4OzruXRCXNEfx-8G5NCv5J4)
 * Zalando
   * [Pressemeddelelse](https://corporate.zalando.com/en/newsroom/en/press-releases/zalando-introduces-anders-holch-povlsen-new-shareholder)
-  * [Zalando, aktieoversigt](https://ww.fashionnetwork.com/news/Bestseller-ceo-buys-more-shares-in-zalando,1078304.html)
+  * Zalando
+    * [aktieoversigt](https://ww.fashionnetwork.com/news/Bestseller-ceo-buys-more-shares-in-zalando,1078304.html)
+	* [zLabels (brands under Zalando)](https://zlabels.com/brands.html) 
+* ASOS
+  * [ASOS-owned brands](https://www.tatler.com/article/anders-povlsen-uks-largest-private-landowner-scotland-rewilding-interview)
 * Nemlig
   * [Efter arbejdsforholdsskandalen](https://piopio.dk/mange-milliardaer-staar-bag-nemligcom)
 * Klarna
