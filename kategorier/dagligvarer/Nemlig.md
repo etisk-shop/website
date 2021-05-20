@@ -1,8 +1,9 @@
 ---
-layout: post
-title: "Nemlig"
+layout: page
+title: Nemlig
 date: 2021-04-20 17:37:07 +0200
 categories: fy-liste supermarked
+parent: Dagligvarer
 ---
 
 # Nemlig

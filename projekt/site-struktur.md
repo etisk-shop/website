@@ -6,8 +6,11 @@ Forside
 
 Sortliste
 
-- Firma/Person
-- - Underfirmaer
+- Kategorier
+- - Kategori
+- - - Firma
+- Personer
+- - Firmaer de ejer
 
 Hvidliste
 
