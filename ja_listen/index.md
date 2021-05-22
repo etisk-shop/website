@@ -1,11 +1,12 @@
 ---
 layout: post
-title: "Ja Listen"
+title: Ja-listen
+has_children: true
 ---
 
-## Kategorier
+## Alternativer
 
-{% for tag in site.tags %}
+<!-- {% for tag in site.tags %}
 
   <h3>{{ tag[0] }}</h3>
   <ul>
@@ -13,4 +14,4 @@ title: "Ja Listen"
       <li><a href="{{ post.url }}">{{ post.title }}</a></li>
     {% endfor %}
   </ul>
-{% endfor %}
+{% endfor %} -->

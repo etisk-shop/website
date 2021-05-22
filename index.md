@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Index Page
+title: Forside
 nav_order: 1
 ---
 
