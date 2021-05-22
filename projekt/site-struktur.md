@@ -4,16 +4,18 @@ Forside
 
 - Hvad indeholder forsiden?
 
-Sortliste
+Fy-liste
 
-- Kategorier
+- Kategorier [Ikke i navigation]
 - - Kategori
 - - - Firma
 - Personer
 - - Firmaer de ejer
 
-Hvidliste
+Ja-liste
 
 - Firma/Person
 
-Artikler
+Artikler?
+
+Om
