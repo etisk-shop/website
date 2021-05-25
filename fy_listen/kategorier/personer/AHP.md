@@ -1,9 +1,10 @@
 ---
 layout: post 	
-title: Anders Holch Povlsen
+title: "AHP"
 date: 2021-04-30 17:01:07 +0200
 categories: fy-liste personer
-parent: personer
+parent: Personer
+grand_parent: Fy-listen
 ---
 
 <script src="https://d3js.org/d3.v6.min.js"></script>

@@ -1,9 +1,10 @@
 ---
-layout: page
-title: H&M
+layout: post
+title: "HM"
 date: 2021-05-02 19:46:00 +0200
 categories: fy-liste supermarked
-parent: mode
+parent: Mode
+grand_parent: Fy-listen
 ---
 
 # H&M
