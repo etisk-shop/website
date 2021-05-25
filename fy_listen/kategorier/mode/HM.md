@@ -3,7 +3,7 @@ layout: page
 title: H&M
 date: 2021-05-02 19:46:00 +0200
 categories: fy-liste supermarked
-parent: Mode
+parent: mode
 ---
 
 # H&M
