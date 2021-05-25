@@ -3,6 +3,7 @@ layout: page
 title: Dagligvarer
 date: 2021-04-25 15:05:00 +0200
 categories: emne dagligvarer
+parent: Fy-listen
 has_children: true
 ---
 
